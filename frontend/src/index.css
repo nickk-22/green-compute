@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1917;
+  --color-muted: #57534e;
+  --color-leaf: #2f6f4e;
+  --color-leaf-dark: #24583e;
+  --color-leaf-soft: #e8f3ec;
+  --color-canvas: #f6f5f1;
+  --color-card: #ffffff;
+  --color-line: #e7e5e4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-leaf);
+  outline-offset: 2px;
+}

@@ -2,13 +2,21 @@
 
 @theme {
   --color-ink: #1c1917;
+  --color-ink-light: #292524;
   --color-muted: #57534e;
+  --color-muted-light: #78716c;
   --color-leaf: #2f6f4e;
-  --color-leaf-dark: #24583e;
-  --color-leaf-soft: #e8f3ec;
-  --color-canvas: #f6f5f1;
+  --color-leaf-dark: #204c35;
+  --color-leaf-light: #3a855f;
+  --color-leaf-soft: #eef6f0;
+  --color-leaf-tint: #f4faf6;
+  --color-leaf-border: #cde4d5;
+  --color-canvas: #fbfbfa;
   --color-card: #ffffff;
   --color-line: #e7e5e4;
+  --color-line-subtle: #f0eeeb;
+  --color-amber-accent: #d97706;
+  --color-coral-accent: #e11d48;
 }
 
 html {
@@ -17,16 +25,48 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-canvas);
+  background-color: var(--color-canvas);
   color: var(--color-ink);
-  font-family:
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *:focus-visible {
   outline: 2px solid var(--color-leaf);
   outline-offset: 2px;
+}
+
+/* Subtle modern card styling */
+.eco-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eco-card:hover {
+  border-color: var(--color-leaf-border);
+  box-shadow: 0 4px 12px -2px rgba(47, 111, 78, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* Subtle eco-tinted background gradient */
+.eco-hero-mesh {
+  background: radial-gradient(circle at 50% 0%, rgba(238, 246, 240, 0.8) 0%, rgba(251, 251, 250, 0) 70%);
+}
+
+/* Shimmer animation for AI skeleton loading */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0eeeb 25%, #e8f3ec 50%, #f0eeeb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
 }

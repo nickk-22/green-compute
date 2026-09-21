@@ -1,11 +1,18 @@
-export default function ResultCard({ label, value, hint, icon }) {
+export default function ResultCard({ label, value, hint, icon, accentColor = "leaf" }) {
   return (
-    <article className="rounded-xl border border-line bg-card p-4 shadow-sm">
-      <p className="text-xs font-medium uppercase tracking-wide text-muted">
-        {icon} {label}
-      </p>
-      <p className="mt-2 text-2xl font-semibold text-ink">{value}</p>
-      {hint && <p className="mt-1 text-xs text-muted">{hint}</p>}
+    <article className="eco-card relative flex flex-col justify-between overflow-hidden rounded-xl p-4 transition-all">
+      <div>
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted">
+            {label}
+          </span>
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-stone-100/80 text-stone-700">
+            {icon}
+          </div>
+        </div>
+        <p className="mt-3 text-2xl font-bold tracking-tight text-ink">{value}</p>
+      </div>
+      {hint && <p className="mt-2 text-[11px] leading-relaxed text-muted">{hint}</p>}
     </article>
   );
 }
